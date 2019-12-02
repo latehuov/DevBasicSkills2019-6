@@ -22,3 +22,23 @@
     font-size: 75px;
     color: red;
 }
+.grid{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: [col1] 1fr [col2] 1fr;
+    grid-template-rows: [row1] 0.3fr [row2] 0.3fr [row3] 0.3fr;
+}
+.effect{
+    border: 1px solid black;
+    border-radius: 15px;
+    width: 50%;
+    height: 25%;
+    line-height: 62px;
+    text-align: center;
+    margin: auto auto;
+    background-color: teal;
+}
+div .effect:hover{
+    border: 3px solid red;
+}
