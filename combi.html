@@ -7,9 +7,58 @@
         </title>
     </head> 
     <script>
-    
+    //factorial calculation
+    function factorial(num){
+        if (num === 0 || num === 1)
+            return 1;
+        for (let i = num -1; i >=1; i--)
+        {
+            num *= i
+        }
+        return num;
+    }
+    //combinations
+        function combination(){
+            let sample = document.querySelector(".sample").value
+            let chosen = document.querySelector(".chosen").value
+            let samplefac = factorial(sample)
+            let chosenfac = factorial(chosen)
+            let minus = []
+            for (sample, sample-1 > chosen, sample-- )
+            {
+                minus.push[sample]
+            }
+            for ()
+            //math bit//
+            document.querySelector(".combiOut").innerHTML = (samplefac/(chosenfac * minusfac))
+        }
     </script>
     <body>
-        
+        <div class="body">
+            <div class="header">
+                <div class="headText" style="font-size:50px;"> Combinations and Permutations</div>
+            </div>
+            <div class="combiButtons">
+                <div class="combperm"> combinations</div>
+                <div class="combperm">permutations </div>
+            </div>
+            <div class="display">
+                <div class="combinatorics">
+                    <div class="textInDisplay">
+                        combinatorics <br>
+                        nCr(sample,chosen) <br>
+                        formula: nCr = sample!/(chosen!(sample-chosen)!)
+                    </div>
+                    <div class="combiIn">
+                        Sample <input type="number" name="sample size" class="sample">
+                    </div>
+                    <div class="combiIn">
+                        Chosen <input type="number" name="amount selected" class="chosen">
+                    </div>
+                    <div class="fancybutton" onclick=combination()>click</div>
+                    <div class="combiOut">0</div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
