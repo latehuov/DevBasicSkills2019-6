@@ -42,3 +42,9 @@
 div .effect:hover{
     border: 3px solid red;
 }
+
+#clear_pos
+{
+  position: relative;
+  left: 100px;
+}
