@@ -70,6 +70,7 @@
                 let minus = factorial((sample-chosen))
                 //math bit//
                 document.querySelector(".combiOut").innerHTML = (samplefac/(chosenfac * minus))
+                document.querySelector(".permuOut").innerHTML = (samplefac/minus)
             }
         </script>
     </head> 
@@ -112,7 +113,22 @@
                     <div class="combiOut">0</div>
                 </div>
                 <div id="permutations" class="mathbox">
-
+                    <div class="mathbox">
+                        <div class="textInDisplay">
+                            Permutations <br>
+                            nPr(sample,chosen) <br>
+                            formula: nCr = sample!/(sample-chosen)!
+                        </div>
+                        <div class="combiIn">
+                            Sample <input type="number" name="sample size" class="sample">
+                        </div>
+                        <div class="combiIn">
+                            Chosen <input type="number" name="amount selected" class="chosen">
+                        </div>
+                        <div class="fancybutton" onclick=combination() style="margin: 15px auto;">click</div>
+                        <div class="permuOut">0</div>
+                        <span onclick="this.parentElement.style.display='none'">x</span>
+                    </div>
                 </div>
             </div>
         </div>
