@@ -27,23 +27,21 @@ body{
 }
 .grid{
     display: grid;
-    height: 100%;
+    height: 100px;
     width: 100%;
-    grid-template-columns: [col1] 1fr [col2] 1fr;
-    grid-template-rows: [row1] 0.3fr [row2] 0.3fr [row3] 0.3fr;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr [col4] 1fr [col5] 1fr [col6] 1fr;
+    grid-template-rows: [row1] 1fr;
 }
-.effect{
-    border: 1px solid black;
+button{
+    background-color: oldlace;
     border-radius: 15px;
-    width: 50%;
-    height: 25%;
-    line-height: 62px;
-    text-align: center;
-    margin: auto auto;
-    background-color: teal;
 }
-div .effect:hover{
-    border: 3px solid red;
+button:hover{
+    background-color: peachpuff;
+    border: 5px solid royalblue;
+}
+.active{
+    background-color: sandybrown;
 }
 
 #clear_pos
@@ -59,58 +57,60 @@ div .effect:hover{
     position: relative;
     left: 30px;
 }
-.combiButtons{
-    display: flex;
+
+
+.content{
+    display: none;
     width: 100%;
-    height: 100px;
-    border: 1px solid black;
-    background-color: gray;
-}
-.combperm{
-    margin: auto auto;
-    width: 250px;
-    height: 50px;
-    border: 1px solid black;
-    line-height: 50px;
-    text-align: center;
-    font-size: 25px;
-    background: teal;
-    color: red;
-    border-radius: 15px;
-}
-.combperm:hover{
-    border: 3px solid red;
-}
-.display{
-    width: 100%;
-    height: 575px;
+    height: 580px;
     border: 1px solid red;
-    display: flex;
 }
-.combiIn{
+.mathbox{
+    display:none;
+    width: 100%;
+    height: 500px;
     border: 1px solid black;
-    width: fit-content;
-    margin:15px auto;
+}
+.tab{
+    display: flex;
+    height: 50px;
+    width: 1024px;
+    border: 1px solid black;
+}
+.tab button{
+    margin: auto;
 }
 .textInDisplay{
-    border: 1px solid black;
-    width: 1024px;
+    height: 150px;
+    width: 100%;
     text-align: center;
-    font-size: 25px;
+    font-size: 23px;
+}
+.combiIn{
+    width: 100%;
+    margin:15px auto;
+    text-align: center;
 }
 .fancybutton{
-    width: 50px;
+    background: crimson;
     height: 50px;
+    width: 50px;
     border-radius: 100%;
-    background-color: hotpink;
+    cursor: crosshair;
     line-height: 50px;
     text-align: center;
 }
-.fancybutton:hover{
-    color: hotpink;
-    background-color: black;
-}
-.combiOut{
+.outPut{
+    width: 100%;
     text-align: center;
     font-size: 20;
+}
+.bar{
+    height: 15px;
+    border: 1px solid black;
+}
+.barText{
+    height: 15px;
+    line-height: 15px;
+    text-align: center;
 }

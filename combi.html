@@ -7,6 +7,29 @@
         </title>
     </head> 
     <script>
+        function changeTab(event, mathName) {
+            // Declare all variables
+            var i, tab, tablink;
+
+            // Get all elements with class="tabcontent" and hide them
+            tab = document.getElementsByClassName(".tab");
+            for (i = 0; i < tab.length; i++) 
+            {
+            tab[i].style.display = "none";
+            }
+            console.log(tab)
+
+            // Get all elements with class="tablinks" and remove the class "active"
+            tablink = document.getElementsByClassName(".tablink");
+            for (i = 0; i < tablink.length; i++)
+            {
+                tablink[i].className = tablink[i].className.replace(" active", "");
+            }
+            console.log(tablink)
+             // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(mathName).style.display = "flex";
+            event.currentTarget.className += " active";
+        }
     //factorial calculation
     function factorial(num){
         if (num === 0 || num === 1)
@@ -17,7 +40,7 @@
         }
         return num;
     }
-    //combinations
+    //combinations & permutations
         function combination(){
             let sample = document.querySelector(".sample").value
             let chosen = document.querySelector(".chosen").value
@@ -26,6 +49,7 @@
             let minus = factorial((sample-chosen))
             //math bit//
             document.querySelector(".combiOut").innerHTML = (samplefac/(chosenfac * minus))
+            document.querySelector(".permuOut").innerHTML = (samplefac/minus)
         }
     </script>
     <body>
@@ -34,11 +58,11 @@
                 <div class="headText" style="font-size:50px;"> Combinations and Permutations</div>
             </div>
             <div class="combiButtons">
-                <div class="combperm"> combinations</div>
-                <div class="combperm">permutations </div>
+                <button class="tablink" onclick="changeTab(event, 'combinations')">Combinations</button>
+                <button class="tablink" onclick="changeTab(event, 'permutations')">permutations</button>
             </div>
-            <div class="display">
-                <div class="combinatorics">
+            <div class="tab" id="combinations">
+                <div class="mathbox">
                     <div class="textInDisplay">
                         combinatorics <br>
                         nCr(sample,chosen) <br>
@@ -52,6 +76,25 @@
                     </div>
                     <div class="fancybutton" onclick=combination() style="margin: 15px auto;">click</div>
                     <div class="combiOut">0</div>
+                    <span onclick="this.parentElement.style.display='none'">x</span>
+                </div>
+            </div>
+            <div class="tab" id="permutations">
+                <div class="mathbox">
+                    <div class="textInDisplay">
+                        Permutations <br>
+                        nPr(sample,chosen) <br>
+                        formula: nCr = sample!/(sample-chosen)!
+                    </div>
+                    <div class="combiIn">
+                        Sample <input type="number" name="sample size" class="sample">
+                    </div>
+                    <div class="combiIn">
+                        Chosen <input type="number" name="amount selected" class="chosen">
+                    </div>
+                    <div class="fancybutton" onclick=combination() style="margin: 15px auto;">click</div>
+                    <div class="permuOut">0</div>
+                    <span onclick="this.parentElement.style.display='none'">x</span>
                 </div>
             </div>
         </div>

@@ -5,19 +5,207 @@
         <title>
             Home
         </title>
+        <script>
+            var baseview = document.getElementById("baseview").click();
+            /* tab change functionality */
+            function changeMath(event, mathName) {
+                var i, content, tablinks;
+                //find everything with class=content, set display = none
+                content = document.getElementsByClassName("content");
+                for (i = 0; i < content.length; i++) 
+                {
+                    content[i].style.display = "none";
+                }
+                console.log(content)
+                //get all tablinks, set inactive
+                tablinks = document.getElementsByClassName("tablinks");
+                for (i = 0; i < tablinks.length; i++)
+                {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+                console.log(tablinks)
+                //find pressed button, set as active, set display of buttons content active
+                document.getElementById(mathName).style.display = "block";
+                event.currentTarget.className += " active";
+            }
+
+            //same as changeMath(), expect one level below
+            function changefunc(event, mathName) {
+                var i, content, tablinks;
+                //find everything with class=content, set display = none
+                content = document.getElementsByClassName("mathbox");
+                for (i = 0; i < content.length; i++) 
+                {
+                    content[i].style.display = "none";
+                }
+                console.log(content)
+                //get all tablinks, set inactive
+                tablinks = document.getElementsByClassName("mathlink");
+                for (i = 0; i < tablinks.length; i++)
+                {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+                console.log(tablinks)
+                //find pressed button, set as active, set display of buttons content active
+                document.getElementById(mathName).style.display = "block";
+                event.currentTarget.className += " active";
+            }
+
+            //factorial calculation
+             function factorial(num){
+                if (num === 0 || num === 1)
+                    return 1;
+                for (let i = num -1; i >=1; i--)
+                {
+                    num *= i
+                }
+                return num;
+            }
+            //combinations
+            function combination(){
+                let sample = document.querySelector(".sample").value
+                let chosen = document.querySelector(".chosen").value
+                let samplefac = factorial(sample)
+                let chosenfac = factorial(chosen)
+                let minus = factorial((sample-chosen))
+                //math bit//
+                document.querySelector(".combiOut").innerHTML = (samplefac/(chosenfac * minus))
+            }
+            //permutations
+            function permutation(){
+                let sample = document.querySelector(".a").value
+                let chosen = document.querySelector(".b").value
+                let samplefac = factorial(sample)
+                let minus = factorial((sample-chosen))
+                document.querySelector(".permuOutNo").innerHTML = (samplefac/minus)
+                document.querySelector(".permuOutYes").innerHTML = (sample**chosen)
+            }
+            //random number generation
+            var lowes ;
+        var highes ;
+        var cycle;
+        function createDivs(){
+            lowes = Number(document.getElementById("min").value)
+            highes = Number(document.getElementById("max").value)
+            cycle = Number(document.getElementById("cycle").value)
+            let randomArray = []
+            for( let ran = 0; ran < cycle; ran ++)
+            {
+                let num = Math.floor(Math.random() * (highes -lowes+ 1)) + lowes;
+                randomArray.push(num)
+            }
+            randomArray.sort();
+            const randomArrayCount = new Map([...new Set(randomArray)].map(x => [x, randomArray.filter(y => y === x).length]))
+            for (let index = lowes; index < highes + 1 ; index ++)
+            {
+                var div = document.createElement("div")
+                document.body.appendChild(div).id = index;
+                var randomBar = document.getElementById(index)
+                randomBar.className = "bar"
+                randomBar.style.width ="0px";
+                randomBar.style.width = (randomArrayCount.get(index)*10) + "px";
+                if(index %2 == 0)
+                {
+                    randomBar.style.borderColor = "red"
+                }
+                else
+                {
+                    randomBar.style.borderColor = "black"
+                }
+                var text = document.createElement("span")
+                var windex = index + "text"
+                document.body.appendChild(text).id = windex
+                var barText = document.getElementById(windex)
+                barText.className = "barText"
+                var Occurrences = randomArrayCount.get(index)
+                if (Occurrences >= 1)
+                {
+                    barText.innerHTML = "Number " + index + ", Occurrences " + randomArrayCount.get(index);
+                }
+                else
+                {
+                    barText.innerHTML = "Number " + index + ", Occurrences 0" ;
+                }
+            }
+        }
+        </script>
     </head> 
     <body>
         <div class="body">
             <div class="header">
                 <div class="headText">Perkele Calculation Inc.</div>
             </div>
+            <!--this is where all the buttons are-->
             <div class="grid">
-                <div class="Conversion effect" onclick="window.location='conversionthingy.html';">Conversion</div>
-                <div class="Numbersys effect">number systems</div>
-                <div class="combin effect" onclick="window.location='combi.html';">combinatorics</div>
-                <div class="truth effect">truth tables</div>
-                <div class="random effect">Random number distribution</div>
-                <div class="thingy effect">Own creation</div>
+                <button id="baseview" class="tablinks" onclick="changeMath(event, 'combAndPerm')" >combinations & permutations</button>
+                <button class="tablinks" onclick="changeMath(event, 'conversions')">Conversions</button>
+                <button class="tablinks" onclick="changeMath(event, 'number_systems')">Number Systems</button>
+                <button class="tablinks" onclick="changeMath(event, 'truth')">Truth tables</button>
+                <button class="tablinks" onclick="changeMath(event, 'random')">RNG</button>
+                <button class="tablinks" onclick="changeMath(event, 'thingy')">The best creation ever</button>
+
+            </div>
+            <!--add new divs for each math that is completed-->
+            <!--ID of each div can be found from the div above in the onclick event in quoations-->
+            <!--for tabs inside of tabs change tablinks to mathlink, changeMath to changefunc, and content to mathbox-->
+            <div id="combAndPerm" class="content">
+                <div class="tab">
+                    <button class="mathlink" onclick="changefunc(event, 'combinations')">combinations</button>
+                    <button class="mathlink" onclick="changefunc(event, 'permutations')">permutations</button>
+                </div>
+                <div id="combinations" class="mathbox">
+                    <div class="textInDisplay">
+                        combinatorics <br>
+                        nCr(sample,chosen) <br>
+                        formula: nCr = sample!/(chosen!(sample-chosen)!)
+                    </div>
+                    <div class="combiIn">
+                        Sample <input type="number" name="sample size" class="sample">
+                    </div>
+                    <div class="combiIn">
+                        Chosen <input type="number" name="amount selected" class="chosen">
+                    </div>
+                    <div class="fancybutton" onclick=combination() style="margin: 15px auto;">click</div>
+                    <div class="combiOut outPut">0</div>
+                </div>
+                <div id="permutations" class="mathbox">
+                    <div style="height:150px;">
+                        <div class="textInDisplay" style="width: 50%;">
+                            Permutations without replacement<br>
+                            nPr(sample,chosen) <br>
+                            formula: nPr = sample!/(sample-chosen)!
+                        </div>
+                        <div class="textInDisplay" style="width: 50%; position: relative; top: -150px; left: 511.99px;">
+                            Permutations with replacement <br>
+                            nPr(sample,chosen) <br>
+                            formula nPr = sample^chosen
+                        </div>
+                    </div>
+                    <div class="combiIn">
+                        Sample <input type="number" name="sample size" class="a">
+                    </div>
+                    <div class="combiIn">
+                        Chosen <input type="number" name="amount selected" class="b">
+                    </div>
+                    <div class="fancybutton" onclick=permutation() style="margin: 15px auto;">click</div>
+                    <div class="outPut">
+                        Permutations without replacement
+                        <div class="permuOutNo">0</div>
+                    </div>
+                    <div class="outPut">
+                        permutations with replacement
+                        <div class="permuOutYes">0</div>
+                    </div>
+                </div>
+            </div>
+            <div id="random">
+                <input type="number" name="min" id="min">
+                <input type="number" name="max" id="max">
+                <input type="number" name="cycles" id="cycle">
+                <button id="run" onclick="createDivs()">click</button>
+                <div>
+        
+                </div>
             </div>
         </div>
     </body>
