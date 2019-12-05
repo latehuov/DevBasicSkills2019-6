@@ -51,6 +51,14 @@ div .effect:hover{
   position: relative;
   left: 100px;
 }
+
+#decimal_numbers
+{
+    height: 100px;
+    width: 20px;
+    position: relative;
+    left: 30px;
+}
 .combiButtons{
     display: flex;
     width: 100%;
