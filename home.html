@@ -80,6 +80,54 @@
                 document.querySelector(".permuOutNo").innerHTML = (samplefac/minus)
                 document.querySelector(".permuOutYes").innerHTML = (sample**chosen)
             }
+            //random number generation
+            var lowes ;
+        var highes ;
+        var cycle;
+        function createDivs(){
+            lowes = Number(document.getElementById("min").value)
+            highes = Number(document.getElementById("max").value)
+            cycle = Number(document.getElementById("cycle").value)
+            let randomArray = []
+            for( let ran = 0; ran < cycle; ran ++)
+            {
+                let num = Math.floor(Math.random() * (highes -lowes+ 1)) + lowes;
+                randomArray.push(num)
+            }
+            randomArray.sort();
+            const randomArrayCount = new Map([...new Set(randomArray)].map(x => [x, randomArray.filter(y => y === x).length]))
+            for (let index = lowes; index < highes + 1 ; index ++)
+            {
+                var div = document.createElement("div")
+                document.body.appendChild(div).id = index;
+                var randomBar = document.getElementById(index)
+                randomBar.className = "bar"
+                randomBar.style.width ="0px";
+                randomBar.style.width = (randomArrayCount.get(index)*10) + "px";
+                if(index %2 == 0)
+                {
+                    randomBar.style.borderColor = "red"
+                }
+                else
+                {
+                    randomBar.style.borderColor = "black"
+                }
+                var text = document.createElement("span")
+                var windex = index + "text"
+                document.body.appendChild(text).id = windex
+                var barText = document.getElementById(windex)
+                barText.className = "barText"
+                var Occurrences = randomArrayCount.get(index)
+                if (Occurrences >= 1)
+                {
+                    barText.innerHTML = "Number " + index + ", Occurrences " + randomArrayCount.get(index);
+                }
+                else
+                {
+                    barText.innerHTML = "Number " + index + ", Occurrences 0" ;
+                }
+            }
+        }
         </script>
     </head> 
     <body>
@@ -148,6 +196,15 @@
                         permutations with replacement
                         <div class="permuOutYes">0</div>
                     </div>
+                </div>
+            </div>
+            <div id="random">
+                <input type="number" name="min" id="min">
+                <input type="number" name="max" id="max">
+                <input type="number" name="cycles" id="cycle">
+                <button id="run" onclick="createDivs()">click</button>
+                <div>
+        
                 </div>
             </div>
         </div>
