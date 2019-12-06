@@ -62,19 +62,13 @@ button:hover{
     width: 10px;
     position: relative;
     left: 100px;
-    bottom: 1370px;
+    bottom: 1369px;
 }
 
 .number_display
 {
     font-size: 23px;
 }
-
-#binaries
-{
-    
-}
-
 
 .content{
     display: none;

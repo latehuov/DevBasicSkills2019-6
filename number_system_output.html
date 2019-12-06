@@ -42,7 +42,7 @@
   
        for (let b = 0; b <= 50; b++)
       {
-        let calc = real_array.length % 2;
+        let calc = parseInt(real_array.toString(10)[b], 2);
         binary_array.push(calc);
         document.getElementById("binaries").innerHTML = binary_array.join(" ");
       }
