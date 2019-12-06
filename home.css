@@ -65,6 +65,28 @@ button:hover{
     bottom: 1369px;
 }
 
+#octal_numbers
+{
+    width: 10px;
+    position: relative;
+    left: 240px;
+    bottom: 2738.5px;
+}
+
+#hex_numbers
+{
+    width: 10px;
+    position: relative;
+    left: 310px;
+    bottom: 4108px;
+}
+
+.number_titles
+{
+    float: left;
+    padding-left: 30px;
+}
+
 .number_display
 {
     font-size: 23px;
