@@ -13,37 +13,45 @@
         <h1>Number System Output</h1>
         </div>
           <div>
-          <h3>Decimals from 0-50</h3>
+          <h3>Decimals from 0-50 and their Binary, Octal and Hexadecimal conversions:</h3>
           </div>
-            <button type="button" onclick="table()">Generate Table</button>
+            <button type="button" onclick="decimal_table()">Generate Table</button>
             
-            <button id = "clear_pos" type="button" onclick="">Clear</button>
+            <button id = "clear_pos" type="reset" onclick="reset_button()">Clear</button>
       
       <div id = 'decimal_numbers'>
-        <p id = "numbers">Decimals</p>
+        <p class= "number_display" id = "numbers"> </p>
+      </div>
+      <div id = "binary_numbers">
+        <p class = "number_display" id = "binaries"> </p>
       </div>
     </div>
   </div>
 
 <script>
-  function table ()
+  function decimal_table ()
   {
-    
-    const number_array = [' 1 ',' 2 ',' 3 ',' 4 ',' 5 ',' 6 ',' 7 ',' 8 ',' 9 ',' 10',
-                          ' 11',' 12',' 13',' 14',' 15',' 16',' 17',' 18',' 19',' 20',
-                          ' 21',' 22',' 23',' 24',' 25',' 26',' 27',' 28',' 29',' 30',
-                          ' 31',' 32',' 33',' 34',' 35',' 36',' 37',' 38',' 39',' 40',
-                          ' 41',' 42',' 43',' 44',' 45',' 46',' 47',' 48',' 49',' 50',] ;
-    
-    document.getElementById("numbers").innerHTML = number_array.join(" ");
-   
-   
-    /*for (i = 0; i <= 50; i++)
+    const real_array = [];
+    const binary_array = [];
+       
+       for (let i = 0; i <= 50; i++)
       {
-        document.getElementById("numbers").innerHTML = i;
-        
-      }*/
+        real_array.push(i);
+        document.getElementById("numbers").innerHTML = real_array.join(" ");
+      }
+  
+       for (let b = 0; b <= 50; b++)
+      {
+        let calc = real_array.length % 2;
+        binary_array.push(calc);
+        document.getElementById("binaries").innerHTML = binary_array.join(" ");
+      }
   }
-  </script>
+
+  /*function reset_button ()
+  {
+    document.getElementsByClassName("number_display").reset();
+  }*/
+</script>
 </body>
 </html>
