@@ -52,10 +52,27 @@ button:hover{
 
 #decimal_numbers
 {
-    height: 100px;
-    width: 20px;
+    width: 10px;
     position: relative;
     left: 30px;
+}
+
+#binary_numbers
+{
+    width: 10px;
+    position: relative;
+    left: 100px;
+    bottom: 1370px;
+}
+
+.number_display
+{
+    font-size: 23px;
+}
+
+#binaries
+{
+    
 }
 
 
