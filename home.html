@@ -85,6 +85,11 @@
         var highes ;
         var cycle;
         function createDivs(){
+            var remover = document.getElementById("barArea")
+            while (remover.firstChild)
+            {
+                remover.removeChild(remover.firstChild)
+            }
             lowes = Number(document.getElementById("min").value)
             highes = Number(document.getElementById("max").value)
             cycle = Number(document.getElementById("cycle").value)
@@ -99,7 +104,7 @@
             for (let index = lowes; index < highes + 1 ; index ++)
             {
                 var div = document.createElement("div")
-                document.getElementById("random").appendChild(div).id = index;
+                document.getElementById("barArea").appendChild(div).id = index;
                 var randomBar = document.getElementById(index)
                 randomBar.className = "bar"
                 randomBar.style.width ="0px";
@@ -114,7 +119,7 @@
                 }
                 var text = document.createElement("span")
                 var windex = index + "text"
-                document.getElementById("random").appendChild(text).id = windex
+                document.getElementById("barArea").appendChild(text).id = windex
                 var barText = document.getElementById(windex)
                 barText.className = "barText"
                 var Occurrences = randomArrayCount.get(index)
@@ -203,7 +208,7 @@
                 <input type="number" name="max" id="max">
                 <input type="number" name="cycles" id="cycle">
                 <button id="run" onclick="createDivs()">click</button>
-                <div>
+                <div id="barArea">
         
                 </div>
             </div>
