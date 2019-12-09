@@ -99,33 +99,38 @@
                 let num = Math.floor(Math.random() * (highes -lowes+ 1)) + lowes;
                 randomArray.push(num)
             }
-            randomArray.sort();
-            const randomArrayCount = new Map([...new Set(randomArray)].map(x => [x, randomArray.filter(y => y === x).length]))
+            randomArray.sort((a,b) => a - b);
             for (let index = lowes; index < highes + 1 ; index ++)
             {
+                let first = randomArray.indexOf(index)
+                let last = randomArray.lastIndexOf(index)
+                let Occurrences = last - first + 1
+                if(first === -1)
+                {
+                    Occurrences = 0
+                }
                 var div = document.createElement("div")
                 document.getElementById("barArea").appendChild(div).id = index;
                 var randomBar = document.getElementById(index)
                 randomBar.className = "bar"
                 randomBar.style.width ="0px";
-                randomBar.style.width = (randomArrayCount.get(index)*10) + "px";
+                randomBar.style.width = (Occurrences*10) + "px";
                 if(index %2 == 0)
                 {
-                    randomBar.style.borderColor = "red"
+                    randomBar.style.backgroundColor = "red"
                 }
                 else
                 {
-                    randomBar.style.borderColor = "black"
+                    randomBar.style.backgroundColor = "black"
                 }
                 var text = document.createElement("span")
                 var windex = index + "text"
                 document.getElementById("barArea").appendChild(text).id = windex
                 var barText = document.getElementById(windex)
                 barText.className = "barText"
-                var Occurrences = randomArrayCount.get(index)
                 if (Occurrences >= 1)
                 {
-                    barText.innerHTML = "Number " + index + ", Occurrences " + randomArrayCount.get(index);
+                    barText.innerHTML = "Number " + index + ", Occurrences " + Occurrences;
                 }
                 else
                 {
@@ -153,6 +158,8 @@
             <!--add new divs for each math that is completed-->
             <!--ID of each div can be found from the div above in the onclick event in quoations-->
             <!--for tabs inside of tabs change tablinks to mathlink, changeMath to changefunc, and content to mathbox-->
+            <!--to display things, make a div with id=name of math, class = content-->
+            <!--crete div inside the previously created div with class contentBox to make it work properly-->
             <div id="combAndPerm" class="content">
                 <div class="tab">
                     <button class="mathlink" onclick="changefunc(event, 'combinations')">combinations</button>
@@ -203,13 +210,25 @@
                     </div>
                 </div>
             </div>
-            <div id="random" class="mathbox ">
-                <input type="number" name="min" id="min">
-                <input type="number" name="max" id="max">
-                <input type="number" name="cycles" id="cycle">
-                <button id="run" onclick="createDivs()">click</button>
+            <div id="random" class="content">
+                <div class="contentBox">
+                    <div class="rngButtons">
+                        <div style="text-align: left;">
+                            <div class="rngText">Minimum Value</div>
+                            <div class="rngText">Maximum value</div>
+                            <div class="rngText">Generation Cycles</div>
+                        </div>
+                        <div>
+                            <input type="number" name="min" id="min">
+                            <input type="number" name="max" id="max">
+                            <input type="number" name="cycles" id="cycle">
+                        </div>
+                    </div>
+                
+                <button id="run" onclick="createDivs()" style="display:grid; margin-left: 491.45px;">click</button>
                 <div id="barArea">
         
+                </div>
                 </div>
             </div>
         </div>
