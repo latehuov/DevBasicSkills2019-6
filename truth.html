@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            truth
+        </title>
+        <script>
+            function andGate(){
+                let p = Number((document.getElementById("pAnd").value)[0])
+                let q = Number((document.getElementById("qAnd").value)[0])
+                let out = document.getElementById("andOut")
+                if( p === 1 && q === 1)
+                {
+                    out.innerHTML = "1"
+                }
+                else if( p === 0 || q === 0)
+                {
+                    out.innerHTML = "0"
+                }
+
+            }
+            function orGate(){
+                let p = Number((document.getElementById("pOr").value)[0])
+                let q = Number((document.getElementById("qOr").value)[0])
+                let out = document.getElementById("orOut")
+                if( (p || q) === 1)
+                {
+                    out.innerHTML = "1"
+                }
+                else
+                {
+                    out.innerHTML = "0"
+                }
+            }
+            function notGate(){
+                let p = Number((document.getElementById("pNot").value)[0])
+                let out = document.getElementById("notOut")
+                if(p === 0)
+                {
+                    out.innerHTML = "1"
+                }
+                else
+                {
+                    out.innerHTML = "0"
+                }
+            }
+            function xorGate(){
+                let p = Number((document.getElementById("pXor").value)[0])
+                let q = Number((document.getElementById("qXor").value)[0]) 
+                let out = document.getElementById("xorOut")
+                if (p === q)
+                {
+                    out.innerHTML = "0"
+                }
+                else
+                {
+                    out.innerHTML = "1"
+                }
+            }
+        </script>
+        <style>
+        .gridlayout{
+            width: 1024px;
+            height: fit-content;
+            display: grid;
+            grid-template-columns: [col1] 1fr [col2] 1 fr;
+            grid-template-rows: [row1] 1fr [row2] 1fr;
+        }
+        .gridtruth{
+            width: 50%;
+            display: grid;
+            grid-template-rows: [row1] 1fr [row2] 3fr;
+        }
+        .truthHead{
+            width: 100%;
+            height: 100%;
+            grid-template-rows: [row1] 25px [row2] 25px;
+            grid-template-columns: [col1] 75px [col2] 75px;
+        }
+        .truthbody{
+
+        }
+        </style>
+    </head>
+    <body>
+        </div>
+        <div class="gridlayout">
+            <div class="And gridtruth" style="grid-column-start: 1; grid-column-end: 2;">
+                <div class="truthHead">
+                    <div>AND gate
+                        <div>P
+                            <input type="number" id="pAnd" min="0" max="1">
+                        </div>
+                        <div>Q
+                            <input type="number" id="qAnd" min="0" max="1">
+                        </div>
+                        <button onclick="andGate()"></button>
+                        <div id="andOut" style="grid-column: col2; grid-row: span 2;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="Or gridtruth">
+                <div class="truthHead">
+                    <div> OR gate
+                        <div>P
+                            <input type="number" id="pOr" min="0" max="1">
+                        </div>
+                        <div>Q
+                            <input type="number" id="qOr" min="0" max="1">
+                        </div>
+                            <button onclick="orGate()"></button>
+                        <div id="orOut"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="Xor gridtruth">
+                <div class="truthHead">
+                    <div>XOR gate
+                        <div>
+                            <input type="number" id="pXor" min="0" max="1">
+                        </div>
+                        <div>
+                        <input type="number" id="qXor" min="0" max="1">
+                        </div>
+                        <div>
+                            <button onclick="xorGate()"></button>
+                        </div>
+                        <div id="xorOut"></div>
+                        </div>
+                </div>
+            </div>
+            <div class="Not gridtruth">
+                <div class="truthHead">
+                    <div>NOT gate
+                        <div>
+                            <input type="number" id="pNot" min="0" max="1">
+                        </div>
+                        <div>
+                            <button onclick="notGate()"></button>
+                        </div>
+                        <div id="notOut"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
