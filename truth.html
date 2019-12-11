@@ -67,18 +67,30 @@
             grid-template-rows: [row1] 1fr [row2] 1fr;
         }
         .gridtruth{
-            width: 50%;
+            width: 100%;
             display: grid;
             grid-template-rows: [row1] 1fr [row2] 3fr;
         }
         .truthHead{
-            width: 100%;
-            height: 100%;
-            grid-template-rows: [row1] 25px [row2] 25px;
-            grid-template-columns: [col1] 75px [col2] 75px;
+            margin: 0 auto;
+            text-align: center;
+            width: 150px;
+            height: 65px;
+            display: grid;
+            grid-template-rows: [row1] 21px [row2] 21px [row3] 21px;
+            grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr;
         }
         .truthbody{
-
+            display: grid;
+            margin: auto auto;
+            text-align: center;
+            width: 28%;
+            height: 100%;
+            grid-template-columns: [col1]1fr [col2] 1fr [col3] 1fr;
+        }
+        .cell{
+            border: 1px solid black;
+            padding-top: 10px;
         }
         </style>
     </head>
@@ -87,59 +99,117 @@
         <div class="gridlayout">
             <div class="And gridtruth" style="grid-column-start: 1; grid-column-end: 2;">
                 <div class="truthHead">
-                    <div>AND gate
-                        <div>P
-                            <input type="number" id="pAnd" min="0" max="1">
-                        </div>
-                        <div>Q
-                            <input type="number" id="qAnd" min="0" max="1">
-                        </div>
-                        <button onclick="andGate()"></button>
-                        <div id="andOut" style="grid-column: col2; grid-row: span 2;"></div>
+                    <div style="grid-column: span 2;">And Gate</div>
+                    <div>Result</div>
+                    <div style="grid-column-start:3; grid-column-end: 4; grid-row-start: 2; grid-row-end: 5;line-height: 42px; text-align: center;" id="andOut"></div>
+                    <div>P</div>
+                    <div>
+                        <input type="number" id="pAnd" min="0" max="1" onchange="andGate()">
+                    </div>
+                    <div>Q</div>
+                    <div>
+                        <input type="number" id="qAnd" min="0" max="1" onchange="andGate()">
                     </div>
                 </div>
-            </div>
-            <div class="Or gridtruth">
-                <div class="truthHead">
-                    <div> OR gate
-                        <div>P
-                            <input type="number" id="pOr" min="0" max="1">
-                        </div>
-                        <div>Q
-                            <input type="number" id="qOr" min="0" max="1">
-                        </div>
-                            <button onclick="orGate()"></button>
-                        <div id="orOut"></div>
-                    </div>
+                <div class="truthbody">
+                    <div class="cell">P</div>
+                    <div class="cell">Q</div>
+                    <div class="cell">P &#8743 Q</div>
+                    <div class="cell">T</div>
+                    <div class="cell">T</div>
+                    <div class="cell">T</div>
+                    <div class="cell">T</div>
+                    <div class="cell">F</div>
+                    <div class="cell">F</div>
+                    <div class="cell">F</div>
+                    <div class="cell">T</div>
+                    <div class="cell">F</div>
+                    <div class="cell">F</div>
+                    <div class="cell">F</div>
+                    <div class="cell">F</div>
                 </div>
             </div>
-            <div class="Xor gridtruth">
+            <div class="Or gridtruth" style="grid-column-start: 2; grid-column-end: 3;">
                 <div class="truthHead">
-                    <div>XOR gate
-                        <div>
-                            <input type="number" id="pXor" min="0" max="1">
-                        </div>
-                        <div>
-                        <input type="number" id="qXor" min="0" max="1">
-                        </div>
-                        <div>
-                            <button onclick="xorGate()"></button>
-                        </div>
-                        <div id="xorOut"></div>
-                        </div>
+                    <div style="grid-column: span 2;"> OR gate </div>
+                    <div>Result</div>
+                    <div style="grid-column-start:3; grid-column-end: 4; grid-row-start: 2; grid-row-end: 5;line-height: 42px; text-align: center;" id="orOut"></div>
+                    <div>P</div>
+                    <div>
+                        <input type="number" id="pOr" min="0" max="1" onchange="orGate()">
+                    </div>
+                    <div>Q</div>
+                    <div>
+                        <input type="number" id="qOr" min="0" max="1" onchange="orGate()">
+                    </div>
+                </div>
+                <div class="truthbody">
+                    <div class="cell">P</div>
+                    <div class="cell">Q</div>
+                    <div class="cell">P &#8897 Q</div>
+                    <div class="cell">T</div>
+                    <div class="cell">T</div>
+                    <div class="cell">T</div>
+                    <div class="cell">T</div>
+                    <div class="cell">F</div>
+                    <div class="cell">T</div>
+                    <div class="cell">F</div>
+                    <div class="cell">T</div>
+                    <div class="cell">T</div>
+                    <div class="cell">F</div>
+                    <div class="cell">F</div>
+                    <div class="cell">F</div>
                 </div>
             </div>
-            <div class="Not gridtruth">
+            <div class="Xor gridtruth" style="grid-column-start: 1; grid-column-end: 2;">
                 <div class="truthHead">
-                    <div>NOT gate
-                        <div>
-                            <input type="number" id="pNot" min="0" max="1">
-                        </div>
-                        <div>
-                            <button onclick="notGate()"></button>
-                        </div>
-                        <div id="notOut"></div>
+                    <div style="grid-column: span 2;">XOR gate</div>
+                    <div>Result</div>
+                    <div style="grid-column-start:3; grid-column-end: 4; grid-row-start: 2; grid-row-end: 5;line-height: 42px; text-align: center;" id="xorOut"></div>
+                    <div>P</div>
+                    <div>
+                        <input type="number" id="pXor" min="0" max="1" onchange="xorGate()">
                     </div>
+                    <div>Q</div>
+                    <div>
+                        <input type="number" id="qXor" min="0" max="1" onchange="xorGate()">
+                    </div>
+                </div>
+                <div class="truthbody">
+                    <div class="cell">P</div>
+                    <div class="cell">Q</div>
+                    <div class="cell">P &#8853 Q</div>
+                    <div class="cell">T</div>
+                    <div class="cell">T</div>
+                    <div class="cell">F</div>
+                    <div class="cell">T</div>
+                    <div class="cell">F</div>
+                    <div class="cell">T</div>
+                    <div class="cell">F</div>
+                    <div class="cell">T</div>
+                    <div class="cell">T</div>
+                    <div class="cell">F</div>
+                    <div class="cell">F</div>
+                    <div class="cell">F</div>
+                </div>
+            </div>
+            <div class="Not gridtruth" style="grid-column-start: 2; grid-column-end: 3;">
+                <div class="truthHead">
+                    <div style="grid-column: span 2;">NOT gate</div>
+                    <div>Result</div>
+                    <div id="notOut" style="grid-row-start: 2; grid-row-end: 3; grid-column-start: 3;grid-column-end: 4;"></div>
+                    <div>P</div>
+                    <div>
+                        <input type="number" id="pNot" min="0" max="1" onchange="notGate()">
+                    </div>
+                </div>
+                <div class="truthbody" style="height: fit-content;">
+                        <div class="cell">P</div>
+                        <div class="cell">&#172P</div>
+                        <div class="cell">T</div>
+                        <div class="cell">F</div>
+                        <div class="cell">F</div>
+                        <div class="cell">T</div>
                 </div>
             </div>
         </div>
