@@ -16,8 +16,10 @@
           <h3>Decimals from 0-50 and their Binary, Octal and Hexadecimal conversions:</h3>
           </div>
             
+            <div class = "button_pos">
             <button type="button" onclick="decimal_table()">Generate Table</button>
-            <button id = "clear_pos" type="reset" onclick="reset_button()">Clear</button>
+            </div>
+            <button id = "clear_pos" type="button" onclick="reset_button()">Clear</button>
       
       <div class = "number_titles">      
         <h3>Decimals</h3>
@@ -48,12 +50,15 @@
   </div>
 
 <script>
+    
+  const real_array = [];
+  const binary_array = [];
+  const octal_array = [];
+  const hex_array = [];
+  
   function decimal_table ()
   {
-    const real_array = [];
-    const binary_array = [];
-    const octal_array = [];
-    const hex_array = [];
+    
        
      for (let i = 0; i <= 50; i++)
        {
@@ -67,13 +72,24 @@
         document.getElementById("octals").innerHTML = octal_array.join(" ");
         document.getElementById("hex").innerHTML = hex_array.join(" ");
        }
-      
   }
-
-  /*function reset_button ()
+  
+  function reset_button ()
   {
-    document.getElementsByClassName("number_display").reset();
-  }*/
+    for (let i = 0; i <= 50; i++)
+      {
+       real_array.shift(i);
+       binary_array.shift(i);
+       octal_array.shift(i);
+       hex_array.shift(i);
+          
+       document.getElementById("numbers").innerHTML = real_array;
+       document.getElementById("binaries").innerHTML = binary_array;
+       document.getElementById("octals").innerHTML = octal_array;
+       document.getElementById("hex").innerHTML = hex_array;
+      }
+  } 
+  
 </script>
 </body>
 </html>
