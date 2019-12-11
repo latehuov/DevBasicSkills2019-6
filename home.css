@@ -160,3 +160,10 @@ button:hover{
     line-height: 21px;
     text-align: left;
 }
+#convBox{
+    position: relative;
+    left: 400px;
+    width: 200px;
+    height: 500px;
+    border: 1px solid black;
+}

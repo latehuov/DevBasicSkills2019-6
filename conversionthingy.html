@@ -9,35 +9,28 @@
   <body style="background-color: rgb(245, 255, 233);">
     <div class="body">
       <div class="header">
-      <div class="headText">Base converter</div>
+      <div class="headText">Perkele Calculations Inc.</div>
         
-      <!-- Tab links -->
-      <div class="tab">
-        <button class="tablinks" onclick="openTab(event, 'Binary')">Binary</button>
-        <button class="tablinks" onclick="openTab(event, 'Octal')">Octal</button>
-        <button class="tablinks" onclick="openTab(event, 'Decimal')">Decimal</button>
-        <button class="tablinks" onclick="openTab(event, 'Hexadecimal')">Hexadecimal</button>
-      </div>
+      <div id="convBox">
+        <p>Input base:</p>
+        <select id="inputSelect">
+          <option value="BIN">Binary (2)</option>
+          <option value="OCT">Octal (8)</option>
+          <option value="DEC">Decimal (10)</option>
+          <option value="HEX">Hexadecimal (16)</option>
+        </select>
+        <p>Output base:</p>
+        <select id="OutputSelect">
+          <option value="BIN">Binary (2)</option>
+          <option value="OCT">Octal (8)</option>
+          <option value="DEC">Decimal (10)</option>
+          <option value="HEX">Hexadecimal (16)</option>
+        </select>
+        <br>
+        <p>input:</p>
+        <input type="number" name="convInput"><br>
+        <p id="convOut">kekm8</p>
 
-      <!-- Tab content -->
-      <div id="Binary" class="tabcontent">
-        <h3>kek</h3>
-        <p>asdf</p>
-      </div>
-          
-      <div id="Octal" class="tabcontent">
-        <h3>kek</h3>
-          <p>asdf</p>
-      </div>
-          
-      <div id="Decimal" class="tabcontent">
-        <h3>kek</h3>
-          <p>asdf</p>
-      </div>
-
-      <div id="Decimal" class="tabcontent">
-        <h3>kek</h3>
-          <p>asdf</p>
       </div>
       
     </div>
