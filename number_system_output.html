@@ -18,9 +18,9 @@
             
             <div class = "button_pos">
             <button type="button" onclick="decimal_table()">Generate Table</button>
-            </div>
             <button id = "clear_pos" type="button" onclick="reset_button()">Clear</button>
-      
+            </div>
+
       <div class = "number_titles">      
         <h3>Decimals</h3>
       </div>
@@ -34,7 +34,7 @@
         <h3>Hexadecimal</h3>
       </div>
 
-      <div id = 'decimal_numbers'>
+      <div id = "decimal_numbers"></div>
         <p class= "number_display" id = "numbers"> </p>
       </div>
       <div id = "binary_numbers">
@@ -50,16 +50,21 @@
   </div>
 
 <script>
-    
+
+//These arrays store numbers incremented from the function below.    
+
   const real_array = [];
   const binary_array = [];
   const octal_array = [];
   const hex_array = [];
+
+//This function is called when the 'Generate Table' button is clicked.  
   
   function decimal_table ()
   {
     
-       
+     //The loop will increment the numbers with their methods and push them to the specified arrays.  
+     
      for (let i = 0; i <= 50; i++)
        {
         real_array.push(i);
