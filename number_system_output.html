@@ -18,9 +18,9 @@
             
             <div class = "button_pos">
             <button type="button" onclick="decimal_table()">Generate Table</button>
-            <button id = "clear_pos" type="button" onclick="reset_button()">Clear</button>
             </div>
-
+            <button id = "clear_pos" type="button" onclick="reset_button()">Clear</button>
+      
       <div class = "number_titles">      
         <h3>Decimals</h3>
       </div>
@@ -34,7 +34,7 @@
         <h3>Hexadecimal</h3>
       </div>
 
-      <div id = "decimal_numbers"></div>
+      <div id = 'decimal_numbers'>
         <p class= "number_display" id = "numbers"> </p>
       </div>
       <div id = "binary_numbers">
@@ -50,22 +50,18 @@
   </div>
 
 <script>
-
-//These arrays store numbers incremented from the function below.    
-
+    
+  var isClicked = false;
   const real_array = [];
   const binary_array = [];
   const octal_array = [];
   const hex_array = [];
-
-//This function is called when the 'Generate Table' button is clicked.  
   
   function decimal_table ()
-  {
-    
-     //The loop will increment the numbers with their methods and push them to the specified arrays.  
-     
-     for (let i = 0; i <= 50; i++)
+  {       
+     if(!isClicked)
+     {
+      for (let i = 0; i <= 50; i++)
        {
         real_array.push(i);
         binary_array.push(i.toString(2).padStart(8, 0));
@@ -76,7 +72,10 @@
         document.getElementById("binaries").innerHTML = binary_array.join(" ");
         document.getElementById("octals").innerHTML = octal_array.join(" ");
         document.getElementById("hex").innerHTML = hex_array.join(" ");
+        isClicked = true;
+  
        }
+     }
   }
   
   function reset_button ()
@@ -92,6 +91,7 @@
        document.getElementById("binaries").innerHTML = binary_array;
        document.getElementById("octals").innerHTML = octal_array;
        document.getElementById("hex").innerHTML = hex_array;
+       isClicked = false;
       }
   } 
   
