@@ -44,6 +44,12 @@ button:hover{
     background-color: sandybrown;
 }
 
+#clear_pos
+{
+  position: relative;
+  left: 100px;
+}
+
 #decimal_numbers
 {
     width: 25px;
@@ -83,9 +89,6 @@ button:hover{
     padding-left: 30px;
     padding-right: 30px;
     border: 1px solid black;
-    position: relative;
-    top: 20px;
-    margin-left: 20px;
 }
 
 .number_display
@@ -95,13 +98,7 @@ button:hover{
 
 .button_pos
 {
-    padding-left: 10px;
-}
-
-#clear_pos
-{
-    position: relative;
-    left: 400px;
+    float: left;
 }
 
 .content{
