@@ -190,12 +190,13 @@
                     out.innerHTML = "1"
                 }
             }
-
+            //number system output functions
             var isClicked = false;
-            const real_array = [];
-            const binary_array = [];
-            const octal_array = [];
-            const hex_array = [];
+            var real_array = [];
+            console.log(real_array);
+            var binary_array = [];
+            var octal_array = [];
+            var hex_array = [];
   
             function decimal_table ()
             {       
@@ -326,6 +327,47 @@
         
                 </div>
                 </div>
+            </div>
+            <div class = 'content' id = 'number_systems'>
+                <div>
+                    <h1>Number System Output</h1>
+                    </div>
+                      <div>
+                      <h3>Decimals from 0-50 and their Binary, Octal and Hexadecimal conversions:</h3>
+                      </div>
+                        
+                        <div class = "button_pos">
+                        <button type="button" onclick="decimal_table()">Generate Table</button>
+                        </div>
+                        <button id = "clear_pos" type="button" onclick="reset_button()">Clear</button>
+                  
+                  <div class = "number_titles">      
+                    <h3>Decimals</h3>
+                  </div>
+                  <div class = "number_titles">
+                    <h3>Binary</h3>
+                  </div>
+                  <div class = "number_titles">
+                    <h3>Octal</h3>
+                  </div>
+                  <div class = "number_titles">
+                    <h3>Hexadecimal</h3>
+                  </div>
+                  
+                  <div id = 'number_container'>
+                  <div id = 'decimal_numbers'>
+                    <p class= "number_display" id = "numbers"> </p>
+                  </div>
+                  <div id = "binary_numbers">
+                    <p class = "number_display" id = "binaries"> </p>
+                  </div>
+                  <div id = "octal_numbers">
+                    <p class = "number_display" id = "octals"> </p>
+                  </div>
+                  <div id = "hex_numbers">
+                    <p class = "number_display" id = "hex"> </p>
+                  </div>
+                  </div>
             </div>
             <div id="truth" class="content">
                 <div class="contentBox">
