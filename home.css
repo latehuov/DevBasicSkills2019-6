@@ -6,7 +6,7 @@ body{
     height: 800px;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid black;
+    /*border: 1px solid black;*/
 }
 .header{
     width: 100%;
@@ -52,27 +52,46 @@ button:hover{
 
 #decimal_numbers
 {
-    width: 25px;
+    display: inline-block;
+    width: 112px;
+    border: 1px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 10px;
+    text-align: center;
 }
 
 #binary_numbers
 {
-    width: 90px;
-    padding-left: 20px;
-    padding-right: 20px;
-
+    display: inline-block;
+    width: 95px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid black; 
+    margin-left: 1px;
+    text-align: center;
 }
 
 #octal_numbers
 {
-    width: 25px;
-
+    display: inline-block;
+    width: 84px;
+    border: 1px solid black;
+    margin-left: 11px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
 }
 
 #hex_numbers
 {
-    width: 20px;
-
+    display: inline-block;
+    width: 143px;
+    border: 1px solid black;
+    margin-left: 11px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
 }
 
 .number_titles
@@ -81,6 +100,7 @@ button:hover{
     padding-left: 30px;
     padding-right: 30px;
     border: 1px solid black;
+    margin-right: 15px;
 }
 
 .number_display
@@ -96,9 +116,10 @@ button:hover{
 #number_container
 {
     border: 1px solid black;
-    position: relative;
-    margin-top: 40px;
-    width: auto;
+    margin-top: 39px;
+    height: fit-content;
+    width: 567px;
+    margin-left: 107px;
 }
 
 .content{
