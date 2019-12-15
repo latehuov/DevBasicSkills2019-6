@@ -101,6 +101,14 @@ button:hover{
     float: left;
 }
 
+#number_container
+{
+    border: 1px solid black;
+    position: relative;
+    margin-top: 40px;
+    width: auto;
+}
+
 .content{
     display: none;
     border: 1px solid red;
