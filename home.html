@@ -190,6 +190,50 @@
                     out.innerHTML = "1"
                 }
             }
+
+            var isClicked = false;
+            const real_array = [];
+            const binary_array = [];
+            const octal_array = [];
+            const hex_array = [];
+  
+            function decimal_table ()
+            {       
+                if(!isClicked)
+                {
+                for (let i = 0; i <= 50; i++)
+                    {
+                        real_array.push(i);
+                        binary_array.push(i.toString(2).padStart(8, 0));
+                        octal_array.push(i.toString(8));
+                        hex_array.push(i.toString(16));
+          
+                        document.getElementById("numbers").innerHTML = real_array.join(" ");
+                        document.getElementById("binaries").innerHTML = binary_array.join(" ");
+                        document.getElementById("octals").innerHTML = octal_array.join(" ");
+                        document.getElementById("hex").innerHTML = hex_array.join(" ");
+                        isClicked = true;
+  
+                    }
+                }
+            }
+  
+            function reset_button ()
+            {
+                for (let i = 0; i <= 50; i++)
+                    {
+                        real_array.shift(i);
+                        binary_array.shift(i);
+                        octal_array.shift(i);
+                        hex_array.shift(i);
+          
+                        document.getElementById("numbers").innerHTML = real_array;
+                        document.getElementById("binaries").innerHTML = binary_array;
+                        document.getElementById("octals").innerHTML = octal_array;
+                        document.getElementById("hex").innerHTML = hex_array;
+                        isClicked = false;
+                    }
+            } 
         </script>
     </head> 
     <body>
