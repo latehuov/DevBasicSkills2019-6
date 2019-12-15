@@ -53,35 +53,26 @@ button:hover{
 #decimal_numbers
 {
     width: 25px;
-    position: relative;
-    left: 170px;
-    border: 1px solid black;
 }
 
 #binary_numbers
 {
     width: 90px;
-    position: relative;
-    left: 240px;
     padding-left: 20px;
     padding-right: 20px;
-    bottom: 1369.5px;
+
 }
 
 #octal_numbers
 {
     width: 25px;
-    position: relative;
-    left: 410px;
-    bottom: 2738.5px;
+
 }
 
 #hex_numbers
 {
     width: 20px;
-    position: relative;
-    left: 520px;
-    bottom: 4108px;
+
 }
 
 .number_titles
