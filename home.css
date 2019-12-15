@@ -55,6 +55,7 @@ button:hover{
     width: 25px;
     position: relative;
     left: 170px;
+    border: 1px solid black;
 }
 
 #binary_numbers
