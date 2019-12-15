@@ -6,6 +6,11 @@
             Home
         </title>
         <script>
+            var isClicked = false;//
+            var real_array = [];
+            var binary_array = [];
+            var octal_array = [];
+            var hex_array = [];
             var baseview = document.getElementById("baseview").click();
             /* tab change functionality */
             function changeMath(event, mathName) {
@@ -191,19 +196,15 @@
                 }
             }
             //number system output functions
-            var isClicked = false;
-            var real_array = [];
-            console.log(real_array);
-            var binary_array = [];
-            var octal_array = [];
-            var hex_array = [];
+            
   
             function decimal_table ()
             {       
-                if(!isClicked)
+                if(!isClicked) //this checks if the button is not clicked.
                 {
-                for (let i = 0; i <= 50; i++)
+                for (let i = 0; i <= 50; i++) //for every type of number, it will increment till 50.
                     {
+                        //numbers are added to the array, binary and others are converted first with .toString.
                         real_array.push(i);
                         binary_array.push(i.toString(2).padStart(8, 0));
                         octal_array.push(i.toString(8));
@@ -213,7 +214,8 @@
                         document.getElementById("binaries").innerHTML = binary_array.join(" ");
                         document.getElementById("octals").innerHTML = octal_array.join(" ");
                         document.getElementById("hex").innerHTML = hex_array.join(" ");
-                        isClicked = true;
+                        isClicked = true; /*this will indicate that the button is clicked and will not repeat
+                                            the function twice if the button is clicked again.*/
   
                     }
                 }
@@ -222,19 +224,21 @@
             function reset_button ()
             {
                 for (let i = 0; i <= 50; i++)
-                    {
+                    {   
+                        //.shift will empty the array.
                         real_array.shift(i);
                         binary_array.shift(i);
                         octal_array.shift(i);
                         hex_array.shift(i);
-          
+                        
+                        //this will print the emptied arrayed, showing no content on the page.
                         document.getElementById("numbers").innerHTML = real_array;
                         document.getElementById("binaries").innerHTML = binary_array;
                         document.getElementById("octals").innerHTML = octal_array;
                         document.getElementById("hex").innerHTML = hex_array;
-                        isClicked = false;
+                        isClicked = false; //added so the 'Generate Button' can be pressed again after clearing.
                     }
-            } 
+            }
         </script>
     </head> 
     <body>
