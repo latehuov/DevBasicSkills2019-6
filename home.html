@@ -240,7 +240,7 @@
                 let binr = document.getElementById("binaries")
                 let octal = document.getElementById("octals")
                 let hexadeci = document.getElementById("hex")
-                for (let i = 0; i <51; i++)
+                while (deci.firstChild)
                 {
                     deci.removeChild(deci.firstChild)
                     binr.removeChild(binr.firstChild)
@@ -354,7 +354,7 @@
                         <div class = "button_pos">
                         <button type="button" onclick="decimal_table()">Generate Table</button>
                         </div>
-                        <button id = "clear_pos" type="button" onclick="reset_button(), reset_button()">Clear</button>
+                        <button id = "clear_pos" type="button" onclick="reset_button()">Clear</button>
                   
                   <div class = "number_titles">      
                     <h3>Decimals</h3>
@@ -371,16 +371,16 @@
                   
                   <div id = 'number_container'>
                   <div id = 'decimal_numbers'>
-                    <p class= "number_display" id = "numbers"> </p>
+                    <div class= "number_display" id = "numbers"> </div>
                   </div>
                   <div id = "binary_numbers">
-                    <p class = "number_display" id = "binaries"> </p>
+                    <div class = "number_display" id = "binaries"> </div>
                   </div>
                   <div id = "octal_numbers">
-                    <p class = "number_display" id = "octals"> </p>
+                    <div class = "number_display" id = "octals"> </div>
                   </div>
                   <div id = "hex_numbers">
-                    <p class = "number_display" id = "hex"> </p>
+                    <div class = "number_display" id = "hex"> </div>
                   </div>
                   </div>
             </div>
