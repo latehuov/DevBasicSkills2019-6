@@ -6,12 +6,10 @@ body{
     height: 800px;
     margin-left: auto;
     margin-right: auto;
-    /*border: 1px solid black;*/
 }
 .header{
     width: 100%;
     height: 120px;
-    border: 1px solid black;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-color: teal;
@@ -38,7 +36,6 @@ button{
 }
 button:hover{
     background-color: peachpuff;
-    border: 5px solid royalblue;
 }
 .active{
     background-color: sandybrown;
@@ -54,7 +51,7 @@ button:hover{
 {
     display: inline-block;
     width: 112px;
-    border: 1px solid black;
+
     padding-left: 10px;
     padding-right: 10px;
     margin-right: 10px;
@@ -67,7 +64,7 @@ button:hover{
     width: 95px;
     padding-left: 10px;
     padding-right: 10px;
-    border: 1px solid black; 
+ 
     margin-left: 1px;
     text-align: center;
 }
@@ -76,7 +73,7 @@ button:hover{
 {
     display: inline-block;
     width: 84px;
-    border: 1px solid black;
+
     margin-left: 11px;
     padding-left: 10px;
     padding-right: 10px;
@@ -87,7 +84,7 @@ button:hover{
 {
     display: inline-block;
     width: 143px;
-    border: 1px solid black;
+
     margin-left: 11px;
     padding-left: 10px;
     padding-right: 10px;
@@ -99,7 +96,7 @@ button:hover{
     float: left;
     padding-left: 30px;
     padding-right: 30px;
-    border: 1px solid black;
+
     margin-right: 15px;
 }
 
@@ -115,7 +112,7 @@ button:hover{
 
 #number_container
 {
-    border: 1px solid black;
+
     margin-top: 39px;
     height: fit-content;
     width: 567px;
@@ -124,13 +121,14 @@ button:hover{
 
 .content{
     display: none;
-    border: 1px solid red;
+    background-color: rgb(245,255,225);
+    height: fit-content;
 }
 .mathbox{
     display:none;
     width: 100%;
     height: 500px;
-    border: 1px solid black;
+
 }
 .contentBox{
     width: 100%;
@@ -140,7 +138,6 @@ button:hover{
     display: flex;
     height: 50px;
     width: 1024px;
-    border: 1px solid black;
 }
 .tab button{
     margin: auto;
@@ -154,15 +151,6 @@ button:hover{
 .combiIn{
     width: 100%;
     margin:15px auto;
-    text-align: center;
-}
-.fancybutton{
-    background: crimson;
-    height: 50px;
-    width: 50px;
-    border-radius: 100%;
-    cursor: crosshair;
-    line-height: 50px;
     text-align: center;
 }
 .outPut{
@@ -222,4 +210,30 @@ button:hover{
 .cell{
     border: 1px solid black;
     padding-top: 10px;
+}
+#drawhere{
+    height: auto;
+    width: fit-content;
+    margin: 0 auto;
+}
+#canvas{
+    border: 1px solid black;
+    transform: rotateX(180deg);
+}
+#probtable{
+    display: grid;
+    grid-template-columns: [col1] 30px [col2] 90px;
+}
+.convertstyle{
+    width: 250px;
+    height: auto;
+    margin: auto auto;
+}
+.poistop{
+    display: grid;
+    grid-template-columns: [col1] 250px [col2]200px;
+    grid-template-rows: [row1]1fr[row2]1fr [row3]1fr;
+    text-align: right;
+    position: relative;
+    left: 235px;
 }

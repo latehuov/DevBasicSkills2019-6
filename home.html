@@ -289,12 +289,81 @@
                     document.getElementById("convOut").innerHTML = (parseInt(convnumber + "", base).toString(baseto))
                 }
             }
+
+            function draw(){
+                let remove = document.getElementById("drawhere")
+                while(remove.firstChild)
+                {
+                    remove.removeChild(remove.firstChild)
+                }
+                let createcanv = document.createElement("canvas")
+                remove.appendChild(createcanv).id = "canvas"
+                let createtable = document.createElement("div")
+                remove.appendChild(createtable).id = "probtable"
+                let r = Number(document.getElementById("r").value)
+                let t = Number(document.getElementById("t").value)
+                let k = Number(document.getElementById("k").value)
+                let canv = document.getElementById("canvas")
+                let ctx = canv.getContext("2d")
+                let grid_height = 25
+                let grid_width = canv.width/k 
+                //draw coordinates
+                for( let i = 0; i <= k; i ++)
+                {
+                    ctx.beginPath()
+                    ctx.moveTo(grid_width*i, 0)
+                    ctx.lineWidth = 1
+                    ctx.lineTo(grid_width*i, 500)
+                    ctx.stroke()
+                }
+                for (let foo = 0; foo <= 8; foo ++)
+                {
+                    ctx.beginPath()
+                    ctx.moveTo(0, grid_height*foo)
+                    ctx.lineWidth = 1
+                    ctx.lineTo(1024, grid_height*foo)
+                    ctx.stroke()
+                }
+                let ycoord = []
+                for (let i = 0; i <= k ; i ++)
+                {
+                    let lambda = t*r
+                    current_ycoord = (((lambda**i)*(Math.E**(-lambda)))/factorial(i))
+                    ycoord.push(current_ycoord)
+                    console.log(lambda,  current_ycoord*(100))
+                    if(i > 0)
+                    {
+                        ctx.beginPath()
+                        ctx.moveTo(i*grid_width, current_ycoord*150)
+                        ctx.arc(i*grid_width, current_ycoord*150, 5, 0, 2*Math.PI, true)
+                        ctx.fill()
+                        ctx.moveTo(i*grid_width, current_ycoord*150)
+                        ctx.lineTo((i-1)*grid_width , (ycoord[i-1])*150)
+                        ctx.stroke()
+                    }
+                    else
+                    {
+                        ctx.beginPath()
+                        ctx.moveTo(i*grid_width, current_ycoord*150)
+                        ctx.arc(i*grid_width, current_ycoord*150, 5, 0, 2*Math.PI, true)
+                        ctx.fill()
+                    }
+                    document.getElementById("probtable").style.gridTemplateRows += "[row" +i+"]"
+                    let createdivK = document.createElement("div")
+                    document.getElementById("probtable").appendChild(createdivK).id = i + "Kvalue"
+                    document.getElementById(i + "Kvalue").innerHTML = i
+
+                    let createdivProb = document.createElement("div")
+                    document.getElementById("probtable").appendChild(createdivProb).id = i + "prob"
+                    document.getElementById(i + "prob").innerHTML = current_ycoord
+                }
+            }
         </script>
     </head> 
     <body>
         <div class="body">
             <div class="header">
-                <div class="headText">Perkele Calculation Inc.</div>
+                <div class="headText">Cool_Math.games()</div>
             </div>
             <!--this is where all the buttons are-->
             <div class="grid">
@@ -328,7 +397,7 @@
                     <div class="combiIn">
                         Chosen <input type="number" name="amount selected" class="chosen">
                     </div>
-                    <div class="fancybutton" onclick=combination() style="margin: 15px auto;">click</div>
+                    <button onclick=combination() style="position:relative; left: 492px;">click</button>
                     <div class="combiOut outPut">0</div>
                 </div>
                 <div id="permutations" class="mathbox">
@@ -350,7 +419,7 @@
                     <div class="combiIn">
                         Chosen <input type="number" name="amount selected" class="b">
                     </div>
-                    <div class="fancybutton" onclick=permutation() style="margin: 15px auto;">click</div>
+                    <button onclick=permutation() style="position:relative; left: 492px;">click</button>
                     <div class="outPut">
                         Permutations without replacement
                         <div class="permuOutNo">0</div>
@@ -425,6 +494,7 @@
             </div>
             <div id="conversions" class="content">
                 <div class="contentBox">
+                    <div class="convertstyle">
                     <div class="dropdown">
                         <select id="from">
                             <option value="0">Select Base</option>
@@ -446,6 +516,27 @@
                     <input type="numeric" id="numberToConvert">
                     <button onclick="convert()">Click to convert</button>
                     <div id="convOut"></div>
+                </div>
+                </div>
+            </div>
+            <div id="thingy" class="content">
+                <div class="contentBox">
+                    <div style="text-align: center;"><h1>Poisson Distribution</h1></div>
+                    <div class="poistop">
+                        <div>Rate at which an event happens</div>
+                        <div><input type="number" id="r"></div>
+                        <div>Timeframe measured</div>
+                        <div><input type="number" id="t"></div>
+                        <div>Events to happen</div>
+                        <div><input type="number" id="k"></div>
+                        <div>
+                            <button onclick="draw()"> click to draw</button>
+                        </div>
+                    </div>
+                    <div id="drawhere">
+                        <canvas id="canvas"></canvas>
+                        <div id="probtable"></div>
+                    </div>
                 </div>
             </div>
             <div id="truth" class="content">
