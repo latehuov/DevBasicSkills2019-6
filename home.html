@@ -303,6 +303,17 @@
                 remove.appendChild(createcanv).id = "canvas"
                 let createtable = document.createElement("div")
                 remove.appendChild(createtable).id = "probtable"
+
+                document.getElementById("probtable").style.gridTemplateRows += "[colheadK]"
+                let createheadK = document.createElement("div")
+                document.getElementById("probtable").appendChild(createheadK).id = "headK"
+                document.getElementById("headK").innerHTML = "K"
+
+                document.getElementById("probtable").style.gridTemplateRows += "[colheadText]"
+                let createheadT = document.createElement("div")
+                document.getElementById("probtable").appendChild(createheadT).id = "headText"
+                document.getElementById("headText").innerHTML = "Probability of event happening K times in timeframe"
+
                 let r = Number(document.getElementById("r").value)
                 let t = Number(document.getElementById("t").value)
                 let k = Number(document.getElementById("k").value)
@@ -357,10 +368,12 @@
                     let createdivK = document.createElement("div")
                     document.getElementById("probtable").appendChild(createdivK).id = i + "Kvalue"
                     document.getElementById(i + "Kvalue").innerHTML = i
+                    document.getElementById(i + "Kvalue").style.border = "1px solid black"
 
                     let createdivProb = document.createElement("div")
                     document.getElementById("probtable").appendChild(createdivProb).id = i + "prob"
                     document.getElementById(i + "prob").innerHTML = current_ycoord
+                    document.getElementById(i + "prob").style.border = "1px solid black"
                 }
             }
         </script>
