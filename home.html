@@ -257,36 +257,39 @@
                 let convnumber = document.getElementById("numberToConvert").value
                 let compare = convnumber.split("")
                 let convbase = Number(document.getElementById("from").value)
-                let convto  = Number(document.getElementById("base").value)
-                let base, baseto, over = [];
                 switch(convbase){
-                    case 0: base = 0; break;
+                    case 0: base = 10; break;
                     case 1: base = 2; break;
                     case 2: base = 8; break;
                     case 3: base = 10; break;
                     case 4: base = 16; break;
                 }
-                switch(convto){
-                    case 0: baseto = 0; break;
-                    case 1: baseto = 2; break;
-                    case 2: baseto = 8; break;
-                    case 3: baseto = 10; break;
-                    case 4: baseto = 16; break;
-                }
-                for ( let i = 0; i < compare.length; i ++)
+                let over = []
+                for(let i = 0; i <= compare.length; i ++)
                 {
-                    if (compare[i] >= base)
+                    if(compare[i] >= base)
                     {
                         over.push(compare[i])
                     }
                 }
-                if (over.length > 0)
+                let binOut = document.getElementById("binconv")
+                let octOut = document.getElementById("octconv")
+                let decOut = document.getElementById("decconv")
+                let hexOut = document.getElementById("hexconv")
+                
+                if(over.length < 1)
                 {
-                    document.getElementById("convOut").innerHTML = "Input contains a number that is equal to, or larger than base!"
+                    binOut.innerHTML = parseInt(convnumber + "", base).toString(2)
+                    octOut.innerHTML = parseInt(convnumber + "", base).toString(8)
+                    decOut.innerHTML = parseInt(convnumber + "", base).toString(10)
+                    hexOut.innerHTML = parseInt(convnumber + "", base).toString(16)
                 }
                 else
                 {
-                    document.getElementById("convOut").innerHTML = (parseInt(convnumber + "", base).toString(baseto))
+                    binOut.innerHTML = "Given number contain int larger than, or equal to base!"
+                    octOut.innerHTML ="Given number contain int larger than, or equal to base!"
+                    decOut.innerHTML ="Given number contain int larger than, or equal to base!"
+                    hexOut.innerHTML ="Given number contain int larger than, or equal to base!"
                 }
             }
 
@@ -494,29 +497,43 @@
             </div>
             <div id="conversions" class="content">
                 <div class="contentBox">
-                    <div class="convertstyle">
-                    <div class="dropdown">
-                        <select id="from">
-                            <option value="0">Select Base</option>
-                            <option value="1">Binary</option>
-                            <option value="2">Octal</option>
-                            <option value="3">Decimal</option>
-                            <option value="4">Hexadecimal</option>
-                        </select>
+                    <div style="text-align: center;">
+                            <h1>Number Converter</h1>
                     </div>
-                    <div class="dropdown">
-                        <select id="base">
-                            <option value="0">Select Base</option>
-                            <option value="1">Binary</option>
-                            <option value="2">Octal</option>
-                            <option value="3">Decimal</option>
-                            <option value="4">Hexadecimal</option>
-                        </select>
+                    <div style="text-align: center;">
+                        <b><strong>Number To Convert</strong></b>
+                        <div>
+                            <input type="text" style="width: 300px; height: 75px; font-size: 23px; text-align: center;" id="numberToConvert"> 
+                            <div class="dropdown">
+                                <select id="from">
+                                    <option value="0">Select Base</option>
+                                    <option value="1">Binary</option>
+                                    <option value="2">Octal</option>
+                                    <option value="3">Decimal</option>
+                                    <option value="4">Hexadecimal</option>
+                                </select>
+                                <button onclick="convert()"> Click to convert</button>
+                            </div>               
+                        </div>
                     </div>
-                    <input type="numeric" id="numberToConvert">
-                    <button onclick="convert()">Click to convert</button>
-                    <div id="convOut"></div>
-                </div>
+                    <div class="convergrid">
+                        <div>
+                            <span>Binary</span>
+                            <div id="binconv" style="width: 100%; height: 75%; font-size: 30px;" ></div>
+                        </div>
+                        <div>
+                            <span>Octal</span>
+                            <div id="octconv" style="width: 100%; height: 75%; font-size: 30px;" ></div>
+                        </div>
+                        <div>
+                            <span>Decimal</span>
+                            <div id="decconv" style="width: 100%; height: 75%; font-size: 30px;" ></div>
+                        </div>
+                        <div>
+                            <span>Hexadecimal</span>
+                            <div id="hexconv" style="width: 100%; height: 75%; font-size: 30px;" ></div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div id="thingy" class="content">

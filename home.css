@@ -237,3 +237,11 @@ button:hover{
     position: relative;
     left: 235px;
 }
+.convergrid{
+    display: grid;
+    grid-template-columns: [col1]500px [col2]500px;
+    grid-template-rows: [row1] 250px [row2]250px;
+    margin: auto auto;
+    text-align: center;
+    font-size: 18px;
+}
