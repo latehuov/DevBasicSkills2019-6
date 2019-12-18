@@ -315,6 +315,7 @@
                 {
                     ctx.beginPath()
                     ctx.moveTo(grid_width*i, 0)
+                    ctx.strokeText( i , grid_width*i, 10 )
                     ctx.lineWidth = 1
                     ctx.lineTo(grid_width*i, 500)
                     ctx.stroke()
@@ -323,6 +324,7 @@
                 {
                     ctx.beginPath()
                     ctx.moveTo(0, grid_height*foo)
+                    ctx.strokeText( (foo/8)*100 + "%", 0 , grid_height*foo)
                     ctx.lineWidth = 1
                     ctx.lineTo(1024, grid_height*foo)
                     ctx.stroke()
