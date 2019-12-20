@@ -6,12 +6,10 @@ body{
     height: 800px;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid black;
 }
 .header{
     width: 100%;
     height: 120px;
-    border: 1px solid black;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-color: teal;
@@ -38,7 +36,6 @@ button{
 }
 button:hover{
     background-color: peachpuff;
-    border: 5px solid royalblue;
 }
 .active{
     background-color: sandybrown;
@@ -52,39 +49,55 @@ button:hover{
 
 #decimal_numbers
 {
-    width: 10px;
-    position: relative;
-    left: 30px;
+    display: inline-block;
+    width: 112px;
+
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-right: 10px;
+    text-align: center;
 }
 
 #binary_numbers
 {
-    width: 10px;
-    position: relative;
-    left: 100px;
-    bottom: 1369px;
+    display: inline-block;
+    width: 95px;
+    padding-left: 10px;
+    padding-right: 10px;
+ 
+    margin-left: 1px;
+    text-align: center;
 }
 
 #octal_numbers
 {
-    width: 10px;
-    position: relative;
-    left: 240px;
-    bottom: 2738.5px;
+    display: inline-block;
+    width: 84px;
+
+    margin-left: 11px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
 }
 
 #hex_numbers
 {
-    width: 10px;
-    position: relative;
-    left: 310px;
-    bottom: 4108px;
+    display: inline-block;
+    width: 143px;
+
+    margin-left: 11px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
 }
 
 .number_titles
 {
     float: left;
     padding-left: 30px;
+    padding-right: 30px;
+
+    margin-right: 15px;
 }
 
 .number_display
@@ -92,15 +105,30 @@ button:hover{
     font-size: 23px;
 }
 
+.button_pos
+{
+    float: left;
+}
+
+#number_container
+{
+
+    margin-top: 39px;
+    height: fit-content;
+    width: 567px;
+    margin-left: 107px;
+}
+
 .content{
     display: none;
-    border: 1px solid red;
+    background-color: rgb(245,255,225);
+    height: fit-content;
 }
 .mathbox{
     display:none;
     width: 100%;
     height: 500px;
-    border: 1px solid black;
+
 }
 .contentBox{
     width: 100%;
@@ -110,7 +138,6 @@ button:hover{
     display: flex;
     height: 50px;
     width: 1024px;
-    border: 1px solid black;
 }
 .tab button{
     margin: auto;
@@ -124,15 +151,6 @@ button:hover{
 .combiIn{
     width: 100%;
     margin:15px auto;
-    text-align: center;
-}
-.fancybutton{
-    background: crimson;
-    height: 50px;
-    width: 50px;
-    border-radius: 100%;
-    cursor: crosshair;
-    line-height: 50px;
     text-align: center;
 }
 .outPut{
@@ -160,10 +178,79 @@ button:hover{
     line-height: 21px;
     text-align: left;
 }
+<<<<<<< HEAD
 #convBox{
     position: relative;
     left: 400px;
     width: 200px;
     height: 500px;
     border: 1px solid black;
+=======
+.gridlayout{
+    width: 1024px;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: [col1] 1fr [col2] 1 fr;
+    grid-template-rows: [row1] 1fr [row2] 1fr;
+}
+.gridtruth{
+    width: 100%;
+    display: grid;
+    grid-template-rows: [row1] 1fr [row2] 3fr;
+}
+.truthHead{
+    margin: 0 auto;
+    text-align: center;
+    width: 150px;
+    height: 65px;
+    display: grid;
+    grid-template-rows: [row1] 21px [row2] 21px [row3] 21px;
+    grid-template-columns: [col1] 1fr [col2] 1fr [col3] 1fr;
+}
+.truthbody{
+    display: grid;
+    margin: auto auto;
+    text-align: center;
+    width: 28%;
+    height: 100%;
+    grid-template-columns: [col1]1fr [col2] 1fr [col3] 1fr;
+}
+.cell{
+    border: 1px solid black;
+    padding-top: 10px;
+}
+#drawhere{
+    height: auto;
+    width: fit-content;
+    margin: 0 auto;
+}
+#canvas{
+    border: 1px solid black;
+    transform: rotateX(180deg);
+}
+#probtable{
+    display: grid;
+    grid-template-columns: [col1] 30px [col2] auto;
+}
+.convertstyle{
+    width: 250px;
+    height: auto;
+    margin: auto auto;
+}
+.poistop{
+    display: grid;
+    grid-template-columns: [col1] 250px [col2]200px;
+    grid-template-rows: [row1]1fr[row2]1fr [row3]1fr;
+    text-align: right;
+    position: relative;
+    left: 235px;
+}
+.convergrid{
+    display: grid;
+    grid-template-columns: [col1]500px [col2]500px;
+    grid-template-rows: [row1] 250px [row2]250px;
+    margin: auto auto;
+    text-align: center;
+    font-size: 18px;
+>>>>>>> 85f4d183eb40f2101308a25d764d910e0606fcc6
 }
